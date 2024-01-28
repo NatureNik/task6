@@ -1,0 +1,20 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Введите сумму вклада: ', (depositAmount) => {
+  rl.question('Введите количество месяцев: ', (months) => {
+    depositAmount = parseFloat(depositAmount);
+    months = parseInt(months);
+
+    for (let i = 0; i < months; i++) {
+      depositAmount += depositAmount * 0.07; // начисление 7% процентов за каждый месяц
+    }
+
+    console.log(Итоговая сумма вклада после ${months} месяцев: ${depositAmount});
+    rl.close();
+  });
+});
